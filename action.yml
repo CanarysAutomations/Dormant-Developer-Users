@@ -1,0 +1,40 @@
+name: GitHub Dormant Developer Users Report
+description: Identify active, inactive and never-active users across GitHub organizations
+author: Sandeep Doddamani
+
+branding:
+  icon: users
+  color: blue
+
+
+inputs:
+  github_token: 
+    description: GitHub token with read:org and read:repo permissions. You must create a GitHub secret (for example, `ORG_AUDIT_TOKEN`) and pass it explicitly to the action.
+    required: true
+  org_names:
+    description: Comma-separated organization names
+    required: true
+  days_inactive_threshold: 
+    description: Days to consider a user inactive
+    required: false
+    default: "60"
+
+runs:
+  using: composite
+  steps:
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.11"
+
+    - name: Install dependencies
+      run: pip install -r "${{ github.action_path }}/requirements.txt"
+      shell: bash
+
+    - name: Run dormant developer users report
+      run: |
+        export GITHUB_TOKEN="${{ inputs.github_token }}"
+        export ORG_NAMES="${{ inputs.org_names }}"
+        export DAYS_INACTIVE_THRESHOLD="${{ inputs.days_inactive_threshold }}"
+        python "${{ github.action_path }}/dormant_developer_users.py"
+      shell: bash
