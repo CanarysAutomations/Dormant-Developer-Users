@@ -4,6 +4,7 @@ GitHub already provides basic dormant user visibility at the platform level.
 This action extends that capability by identifying Dormant Developer Users based on actual development activity—commits, issues, and pull requests—across all repositories.
 The resulting report can be downloaded directly from the GitHub Actions workflow.
 
+> Dormant developer users are organization members who have not made commits, opened issues, or created pull requests within a defined time period.
 
 This project is available both as:
 - ✅ **A GitHub Action**
@@ -24,7 +25,8 @@ Run dormant developer user audits automatically using **GitHub Actions**, withou
 - Classifies users as:
   - `active=true` if activity is within the configured inactivity threshold
   - `active=false` if activity exceeds the threshold
-  - `never-active` if no activity is detected
+  - `never-active`: user is an organization member with no detected commits, issues, or pull requests
+
 - Generates a CSV report summarizing user activity status.
 
 
@@ -201,7 +203,7 @@ The script displays real-time progress:
 Generated report includes:
 
 ```csv
-Users,Last activity,active
+Users,Last Activity,active
 john-doe,24-11-15,true
 jane-smith,24-10-10,false
 bob-jones,24-11-20,true
@@ -214,7 +216,7 @@ new-user,N/A,never-active
 | Column | Description | Values |
 |--------|-------------|--------|
 | `Users` | GitHub username | `username` |
-| `Last activity` | Date of last activity (YY-MM-DD) | `24-11-15` or `N/A` |
+| `Last activity` | Date of last activity (DD-MM-YY) | `15-11-24` or `N/A` |
 | `active` | Activity status | `true`, `false`, or `never-active` |
 
 ### Activity Status
