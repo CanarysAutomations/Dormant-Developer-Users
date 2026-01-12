@@ -92,7 +92,7 @@ jobs:
 
 The token used with this action must have the following scopes:
 
-- `read:org – to list organization members`
+- `read:org – required to list organization members`
 - `repo - required only if the organization contains private repositories`
 
 
