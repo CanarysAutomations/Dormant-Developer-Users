@@ -93,7 +93,7 @@ jobs:
 The token used with this action must have the following scopes:
 
 - `read:org – to list organization members`
-- `repo - to analyze repository activity`
+- `repo - required only if the organization contains private repositories`
 
 
 ## 🔧 GitHub Action Inputs
@@ -104,6 +104,8 @@ The token used with this action must have the following scopes:
 | `org_names` | Yes | – | Comma-separated GitHub organization names |
 | `days_inactive_threshold` | No | `60` | Days to consider a user inactive |
 
+**Note:**
+`days_inactive_threshold` specifies the number of days without developer activity (commits, issues, or pull requests) after which a user is marked as Inactive. If not provided, the default value of 60 days is used.
 
 ## Sample Output
 
@@ -130,7 +132,7 @@ The script tracks user activity including:
 - Issue creation and updates
 - Pull request creation and updates
 
-It generates a CSV report showing each user's last activity date and whether they're active, inactive, or have never been active.
+It generates a CSV report showing each user's contribution activity date and whether they're active, inactive, or have never been active.
 
 ## Prerequisites
 
@@ -165,6 +167,8 @@ DAYS_INACTIVE_THRESHOLD=60
 | `ORG_NAMES` | Comma-separated list of organizations | Required | `myorg,anotherorg` |
 | `DAYS_INACTIVE_THRESHOLD` | Days to consider user inactive | `60` | `90` |
 
+**Note:**
+`days_inactive_threshold` specifies the number of days without developer activity (commits, issues, or pull requests) after which a user is marked as Inactive. If not provided, the default value of 60 days is used.
 
 ## Usage
 
@@ -216,7 +220,7 @@ new-user,N/A,never-active
 | Column | Description | Values |
 |--------|-------------|--------|
 | `Users` | GitHub username | `username` |
-| `Last activity` | Date of last activity (DD-MM-YY) | `15-11-24` or `N/A` |
+| `Last Activity` | Date of last activity (DD-MM-YY) | `15-11-24` or `N/A` |
 | `active` | Activity status | `true`, `false`, or `never-active` |
 
 ### Activity Status
