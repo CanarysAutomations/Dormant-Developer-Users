@@ -58,7 +58,6 @@ Run dormant developer user audits automatically using **GitHub Actions**, withou
 > ```
 
 
-
 ### Example workflow
 
 ```yaml
