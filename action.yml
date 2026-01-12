@@ -9,7 +9,7 @@ branding:
 
 inputs:
   github_token: 
-    description: GitHub token with read:org and read:repo permissions. You must create a GitHub secret (for example, `ORG_AUDIT_TOKEN`) and pass it explicitly to the action.
+    description: GitHub token with read:org and repo permissions. You must create a GitHub secret (for example, `ORG_AUDIT_TOKEN`) and pass it explicitly to the action.
     required: true
   org_names:
     description: Comma-separated organization names
