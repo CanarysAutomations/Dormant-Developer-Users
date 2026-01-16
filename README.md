@@ -1,4 +1,4 @@
-# GitHub Dormant Developer Users Report
+# Dormant Developer Users Report
 
 GitHub already provides basic dormant user visibility at the platform level.
 This action extends that capability by identifying Dormant Developer Users based on actual development activity—commits, issues, and pull requests—across all repositories.
