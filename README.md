@@ -33,8 +33,8 @@ Run dormant developer user audits automatically using **GitHub Actions**, withou
 ## Usage
 
 ```yml
-  - name: Run Dormant Developer Users Report
-    uses: CanarysAutomations/Dormant-Developer-Users@v1
+  - name: Run dormant developer users report
+    uses: CanarysAutomations/Dormant-Developer-Users@v1.0.0
     with:
       github_token: ${{ secrets.ORG_AUDIT_TOKEN }}
       org_names: org
@@ -61,19 +61,19 @@ Run dormant developer user audits automatically using **GitHub Actions**, withou
 ### Example workflow
 
 ```yaml
-name: Dormant Developer Users Audit
+name: Dormant developer users audit
 
 on:
   schedule:
-    - cron: "0 0 31 2 *"
+    - cron: "0 2 1 * *"
   workflow_dispatch:
 
 jobs:
   audit:
     runs-on: ubuntu-latest
     steps:
-      - name: Run Dormant Developer Users Report
-        uses: CanarysAutomations/Dormant-Developer-Users@v1
+      - name: Run dormant developer users report
+        uses: CanarysAutomations/Dormant-Developer-Users@v1.0.0
         with:
           github_token: ${{ secrets.ORG_AUDIT_TOKEN }}
           org_names: org
