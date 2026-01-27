@@ -16,7 +16,6 @@ This project is available both as:
 
 Run dormant developer user audits automatically using **GitHub Actions**, without local setup.
 
-
 ## How It Works
 
 - Retrieves all repositories and branches for the configured GitHub organization.
